@@ -216,4 +216,17 @@ export class GeneratorService {
       return result;
     }
   }
+
+  //Determine if equation contains (> or <) sign
+
+  ifContainsEquality(string) {
+    if(string.includes(">") || string.includes("<")){
+      return true;
+    }
+  }
+
+  changeEquation(equation){
+    equation = equation.replace('>' , '=').replace('<' , '=');
+    return equation;
+  }
 }

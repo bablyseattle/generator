@@ -404,4 +404,22 @@ describe('GeneratorService and all of its methods', () => {
     expect(results[0][2]).toEqual(expectedResult[0]);
   });
 
+  it('should check if equation contains equality sign', () => {
+    const equation = 'a + b > c';
+    let result = _generatorService.ifContainsEquality(equation)
+
+    let expectedResult = true;
+
+    expect(result).toEqual(expectedResult);
+  });
+
+  it('should change ( > ) or ( < ) sign to ( = ) ', () => {
+    const equation = 'a + b > c';
+    let result = _generatorService.changeEquation(equation)
+
+    let expectedResult = 'a + b = c';
+
+    expect(result).toEqual(expectedResult);
+  });
+
 });

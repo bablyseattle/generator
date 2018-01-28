@@ -61,7 +61,13 @@ export class EquationComponent implements OnInit {
   output (){
     try {
       this.equation = Guppy.instances['equationBox'].backend.get_content('text');
+      if(this._generatorService.ifContainsEquality(this.equation))
+      {
+        this.equation = (this._generatorService.changeEquation(this.equation));
+      }
       let extractedVars = nerdamer(this.equation).variables();
+
+      console.log(extractedVars);
       /* creating variable instance and pushing each variable instance into the variables array*/
       for (let i = 0; i < extractedVars.length; i++) {
         let varName: string = extractedVars[i];
