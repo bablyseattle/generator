@@ -61,7 +61,7 @@ export class EquationComponent implements OnInit {
   output (){
     try {
       this.equation = Guppy.instances['equationBox'].backend.get_content('text');
-      if(this._generatorService.ifContainsEquality(this.equation))
+      if(this._generatorService.isInequalityEquation(this.equation))
       {
         this.equation = (this._generatorService.changeEquation(this.equation));
       }

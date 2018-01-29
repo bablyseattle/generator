@@ -219,14 +219,19 @@ export class GeneratorService {
 
   //Determine if equation contains (> or <) sign
 
-  ifContainsEquality(string) {
+  isInequalityEquation(string) {
     if(string.includes(">") || string.includes("<")){
       return true;
     }
+    else return false;
   }
 
   changeEquation(equation){
     equation = equation.replace('>' , '=').replace('<' , '=');
     return equation;
   }
+
+  returns
+
+
 }

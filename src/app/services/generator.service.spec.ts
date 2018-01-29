@@ -404,22 +404,30 @@ describe('GeneratorService and all of its methods', () => {
     expect(results[0][2]).toEqual(expectedResult[0]);
   });
 
-  it('should check if equation contains equality sign', () => {
-    const equation = 'a + b > c';
-    let result = _generatorService.ifContainsEquality(equation)
+  it('should check if equation contains inequality sign', () => {
+    const equation1 = 'a + b > c';
+    const equation2 = 'a + b < c';
+    const equation3 = 'a + b = c';
+    let result1 = _generatorService.isInequalityEquation(equation1)
+    let result2 = _generatorService.isInequalityEquation(equation2)
+    let result3 = _generatorService.isInequalityEquation(equation3)
 
-    let expectedResult = true;
-
-    expect(result).toEqual(expectedResult);
+    expect(result1).toEqual(true);
+    expect(result2).toEqual(true);
+    expect(result3).toEqual(false);
   });
 
   it('should change ( > ) or ( < ) sign to ( = ) ', () => {
-    const equation = 'a + b > c';
-    let result = _generatorService.changeEquation(equation)
+    const equation1 = 'a + b > c';
+    const equation2 = 'a + b < c';
+    const equation3 = 'a + b = c';
+    let result1 = _generatorService.changeEquation(equation1)
+    let result2 = _generatorService.changeEquation(equation2)
+    let result3 = _generatorService.changeEquation(equation3)
 
-    let expectedResult = 'a + b = c';
-
-    expect(result).toEqual(expectedResult);
+    expect(result1).toEqual('a + b = c');
+    expect(result2).toEqual('a + b = c');
+    expect(result3).toEqual('a + b = c');
   });
 
 });
